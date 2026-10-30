@@ -1,0 +1,122 @@
+/* Alexa+ Guardian SafeRoute - Custom Animations & Styles */
+
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 25px rgba(6, 182, 212, 0.4), 0 0 60px rgba(59, 130, 246, 0.2);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 45px rgba(6, 182, 212, 0.7), 0 0 90px rgba(147, 51, 234, 0.35);
+  }
+}
+
+@keyframes listeningWave {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.7);
+  }
+  70% {
+    transform: scale(1.08);
+    box-shadow: 0 0 0 30px rgba(6, 182, 212, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(6, 182, 212, 0);
+  }
+}
+
+@keyframes thinkingSpin {
+  0% {
+    transform: rotate(0deg) scale(1.02);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.06);
+  }
+  100% {
+    transform: rotate(360deg) scale(1.02);
+  }
+}
+
+@keyframes speakingPulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: brightness(1);
+    box-shadow: 0 0 35px rgba(59, 130, 246, 0.6), 0 0 70px rgba(6, 182, 212, 0.4);
+  }
+  30% {
+    transform: scale(1.12);
+    filter: brightness(1.25);
+    box-shadow: 0 0 60px rgba(6, 182, 212, 0.9), 0 0 110px rgba(147, 51, 234, 0.6);
+  }
+  60% {
+    transform: scale(0.98);
+    filter: brightness(1.05);
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.5), 0 0 65px rgba(6, 182, 212, 0.3);
+  }
+}
+
+@keyframes emergencyFlash {
+  0%, 100% {
+    border-color: rgba(239, 68, 68, 0.8);
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+  }
+  50% {
+    border-color: rgba(245, 158, 11, 1);
+    box-shadow: 0 0 35px rgba(239, 68, 68, 0.6);
+  }
+}
+
+/* Orb States */
+.alexa-orb {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.alexa-orb.state-idle {
+  animation: pulseGlow 4s infinite ease-in-out;
+  background: radial-gradient(circle at 35% 35%, #38bdf8, #0284c7 45%, #1e1b4b 90%);
+}
+
+.alexa-orb.state-listening {
+  animation: listeningWave 1.8s infinite ease-out;
+  background: radial-gradient(circle at 35% 35%, #22d3ee, #06b6d4 50%, #0f172a 90%);
+  border: 3px solid #67e8f9;
+}
+
+.alexa-orb.state-thinking {
+  animation: thinkingSpin 2s infinite linear;
+  background: conic-gradient(from 0deg, #06b6d4, #3b82f6, #8b5cf6, #ec4899, #06b6d4);
+  box-shadow: 0 0 50px rgba(139, 92, 246, 0.6);
+}
+
+.alexa-orb.state-speaking {
+  animation: speakingPulse 1.2s infinite ease-in-out;
+  background: radial-gradient(circle at 35% 35%, #60a5fa, #2563eb 45%, #4f46e5 80%, #0f172a);
+}
+
+.emergency-alert-card {
+  animation: emergencyFlash 2s infinite ease-in-out;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.6);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(51, 65, 85, 0.8);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 1);
+}
+
+/* Code Highlighting */
+.json-key { color: #38bdf8; }
+.json-string { color: #a3e635; }
+.json-number { color: #fbbf24; }
+.json-boolean { color: #f472b6; }
+.json-null { color: #94a3b8; }
